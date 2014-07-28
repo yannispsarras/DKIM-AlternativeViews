@@ -56,10 +56,10 @@ namespace DKIM
                 ssl.AuthenticateAsClient(Host, null, System.Security.Authentication.SslProtocols.Ssl3 | System.Security.Authentication.SslProtocols.Tls, false);
                 this.stream = ssl;
                 reader = new StreamReader(ssl);
-                var t = reader.ReadLine();
             }
             else
                 reader = new StreamReader(stream);
+            reader.ReadLine(); // 220 server line
         }
 
         public void Send(MailMessage message)
