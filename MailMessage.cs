@@ -100,7 +100,7 @@ namespace DKIM
                 //check if we have only one body
                 var views = AlternateViews.ToList();
                 if (!string.IsNullOrEmpty(Body))
-                    views.Insert(0, AlternateView.CreateAlternateViewFromString(Body, BodyEncoding, IsBodyHtml ? MediaTypeNames.Text.Html : null));
+                    views.Insert(0, AlternateView.CreateAlternateViewFromString(Body, BodyEncoding, IsBodyHtml ? MediaTypeNames.Text.Html : MediaTypeNames.Text.Plain));
 
                 if (views.Count < 2)// if single, just return it
                     return new StreamReader(views.First().ContentStream).ReadToEnd();
