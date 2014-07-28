@@ -17,7 +17,7 @@ namespace DKIM
     {
         public SmtpReadingException() : base("Could not read response from the server.") { }
         public SmtpReadingException(string host) : base(string.Format("Could not read response from the server({0}).", host)) { }
-        public SmtpReadingException(string host, Exception innerException) : base(string.Format("Could not read response from the server({0}:{1}).", host), innerException) { }
+        public SmtpReadingException(string host, Exception innerException) : base(string.Format("Could not read response from the server({0}).", host), innerException) { }
     }
 
     public class SmtpCommandException : SmtpException
